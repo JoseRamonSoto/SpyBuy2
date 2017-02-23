@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var myWishlist: UITableView!
     
     var wishes = [String]()
+    
+    var testWishes = ["puppy", "PS4", "Laptop"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +23,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishes.count
+        return testWishes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:UITableViewCell = tableView.dequequeReusableCellWithIdentifier("cell") as! UITableViewCell
-        
-        cell.textLabel?.text = self.items[indexPath.row]
+        var cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        cell.textLabel?.text = self.testWishes[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        <#code#>
+        print("fuck you")
     }
 
 
