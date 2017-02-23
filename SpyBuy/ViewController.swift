@@ -25,9 +25,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:UITableViewCell = self.tableView.de
+        var cell:UITableViewCell = tableView.dequequeReusableCellWithIdentifier("cell") as! UITableViewCell
         
-        return UITableViewCell()
+        cell.textLabel?.text = self.items[indexPath.row]
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
