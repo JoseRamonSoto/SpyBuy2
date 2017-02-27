@@ -79,6 +79,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addGift()
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            wishes.remove(at: indexPath.row)
+            myWishlist.reloadData()
+            if wishes.count == 0{
+                addGift()
+            }
+        }
+        
+        
+    }
+    
     
 
 }
